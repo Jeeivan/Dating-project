@@ -15,8 +15,8 @@ function App() {
         <Route path='/1/:id' element={<Page1 />} />
         <Route path='/2/:id' element={<Page2 />} />
         <Route path='/3/:id' element={<Page3 />} />
-        <Route path='/4' element={<Page4 />} />
-        <Route path='/complete' element={<Complete />} />
+        <Route path='/4/:id' element={<Page4 />} />
+        <Route path='/complete/:id' element={<Complete />} />
       </Routes>
     </main>
   );
