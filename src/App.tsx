@@ -12,9 +12,9 @@ function App() {
     <main className="App">
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/1' element={<Page1 />} />
-        <Route path='/2' element={<Page2 />} />
-        <Route path='/3' element={<Page3 />} />
+        <Route path='/1/:id' element={<Page1 />} />
+        <Route path='/2/:id' element={<Page2 />} />
+        <Route path='/3/:id' element={<Page3 />} />
         <Route path='/4' element={<Page4 />} />
         <Route path='/complete' element={<Complete />} />
       </Routes>
