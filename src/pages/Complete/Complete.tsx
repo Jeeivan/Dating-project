@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 export default function Complete() {
     const { id } = useParams();
     const [totalPoints, setTotalPoints] = useState(0)
+    const [results, setResults] = useState([])
 
     async function fetchFormData() {
     try {
@@ -18,6 +19,7 @@ export default function Complete() {
                 sumPoints += pointsArray[i]
             }
             setTotalPoints(sumPoints)
+            setResults(data)
         } else {
             console.log('Failed to fetch form data');
         }
@@ -37,6 +39,18 @@ useEffect(() => {
         <Link to="/">
             <button>Start Over</button>
         </Link>
+        <br />
+        <br />
+        {results && (results as any).answers && (results as any).points && (
+            <>
+         <h4>Your results:</h4>
+        <div>Name: {(results as any).name}</div>
+        <div>Your Age: {(results as any).her_age}</div>
+        <div>His Age: {(results as any).his_age}</div>
+        <div>Q1- {(results as any).answers[0]} - {(results as any).points[0]} points</div>
+        <div>Q2- {(results as any).answers[1]} - {(results as any).points[1]} points</div>
+            </>
+        )}
     </div>
   )
 }
