@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 export default function Home() {
     const [name, setName] = useState('')
     const [formId, setFormId] = useState(null)
+    const [isDisabled, setIsDisabled] = useState(true)
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(false)
 
 const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
@@ -28,12 +30,10 @@ async function createForm() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data);
-            console.log(data._id);
             setFormId(data._id)
             console.log("Form created successfully");
-            console.log(formId);
-            
+            setIsDisabled(false)
+            setIsSubmitDisabled(true)
         } else {
             console.error("Error creating form")
         }
@@ -47,9 +47,12 @@ async function createForm() {
     <div>
         <div>Questionnaire</div>
         <h3>What is your name?</h3>
-        <input type="text" value={name} onChange={handleInputChange}/>
+        <input type="text" value={name} onChange={handleInputChange} disabled={isSubmitDisabled}/>
+            <button onClick={createForm} disabled={isSubmitDisabled}>Submit</button>
+            <br />
+            <br />
         <Link to={formId ? `/1/${formId}` : "#"}>
-            <button onClick={createForm}>Press here to start</button>
+            <button disabled={isDisabled}>Press here to start the questionnaire</button>
         </Link>
     </div>
   )
