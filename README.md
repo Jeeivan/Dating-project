@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+## Dating Organiser ReadMe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![App Screenshot](example.png)
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+This application enables users to input information about their dating matches into a questionnaire. The questionnaire calculates a compatibility rating, making it easier for users to choose partners, particularly for those who encounter numerous matches on dating sites. The app employs a weighted scoring system for each question to determine which partners are the best match.
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Deployment Link](#deployment-link)
+- [Technologies Used](#technologies-used)
+- [Build Process](#build-process)
+- [Challenges](#challenges)
+- [Wins](#wins)
+- [Key Learnings/Takeaways](#key-learningstakeaways)
+- [Future Improvements](#future-improvements)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Deployment Link
 
-### `npm test`
+In the process of adding new features before deploying application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+TypeScript JavaScript MongoDB Mongoose Node.js Express React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Build Process
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Challenges
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Initially, I used a local storage approach to store the answers and points for each question. However, this approach would not have been feasible for future development when there are more questions and answers per question.
 
-### `npm run eject`
+After successfully connecting my frontend to the database, I encountered difficulty in figuring out how to gather all the answers in one place. This led me to first attempt to take advantage of props in React and pass them through each page. However, I encountered a lot of difficulty with this approach.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Upon further consideration, I realised that I could simply send a POST request for the first answer of the questionnaire. For any subsequent answers, I could then update the previous answer with the new answers and points.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This realization prompted me to adjust my schema to change the structure of my answers and points into an array, allowing me to push multiple answers and points into it:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const formSchema = new mongoose.Schema({
+    name: {
+        type: String
+    },
+    her_age: {
+        type: Number
+    },
+    his_age: {
+        type: Number
+    },
+    answers: {
+        type: [String]
+    },
+    points: {
+        type: [Number]
+    }
+})
 
-## Learn More
+export const Form = mongoose.model('Form', formSchema)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Wins
+
+## Key Learnings/Takeaways
+
+## Future Improvements
