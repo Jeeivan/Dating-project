@@ -1,7 +1,5 @@
 ## Dating Organiser ReadMe
 
-![App Screenshot](example.png)
-
 ## Project Description
 
 This application enables users to input information about their dating matches into a questionnaire. The questionnaire calculates a compatibility rating, making it easier for users to choose partners, particularly for those who encounter numerous matches on dating sites. The app employs a weighted scoring system for each question to determine which partners are the best match.
@@ -72,7 +70,7 @@ I am pleased with my ability to quickly handle bugs, such as one I encountered o
 
 ```
 
-The issue arose when the button was clicked, attempting to send a POST request while simultaneously navigating to the next page. Initially, the formId would be null on the initial click, requiring the user to press the button twice to proceed to the next part of the questionnaire, resulting in the creation of two forms. To resolve this, I implemented a solution by creating a separate button to navigate to the next page after the form was submitted.
+The issue arose when the button was clicked, attempting to send a POST request while simultaneously navigating to the next page. Initially, the 'formId' would be null on the initial click, requiring the user to press the button twice to proceed to the next part of the questionnaire, resulting in the creation of two forms. To resolve this, I implemented a solution by creating a separate button to navigate to the next page after the form was submitted.
 
 ```
 
