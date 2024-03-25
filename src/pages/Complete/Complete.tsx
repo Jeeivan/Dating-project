@@ -30,6 +30,7 @@ export default function Complete() {
 
 useEffect(() => {
     fetchFormData()
+    // eslint-disable-next-line
 }, [id])
 
   return (
@@ -49,6 +50,7 @@ useEffect(() => {
         <div>His Age: {(results as any).his_age}</div>
         <div>Q1- {(results as any).answers[0]} - {(results as any).points[0]} points</div>
         <div>Q2- {(results as any).answers[1]} - {(results as any).points[1]} points</div>
+        <div>Q3- {(results as any).answers[2]} - {(results as any).points[2]} points</div>
             </>
         )}
     </div>

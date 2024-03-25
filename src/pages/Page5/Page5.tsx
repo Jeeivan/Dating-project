@@ -32,24 +32,24 @@ export default function Page4() {
     }
 
     function updateAnswer(index: number) {
-        setAnswer(q4_answers[index])
-        setPoints(q4_points[index])
+        setAnswer(q5_answers[index])
+        setPoints(q5_points[index])
         setIsDisabled(false)
     }
 
-    const q4_answers: string[] = ['Funny', 'Loyal', 'Romantic'];
-    const q4_points: number[] = [10, 20, 30]
+    const q5_answers: string[] = ['I am a Catfish', 'I am not a Catfish'];
+    const q5_points: number[] = [10, 20]
 
 
   return (
     <div>
-        <h3>How do his friends describe him?</h3>
-        {q4_answers.map((answer, index) => (
+        <h3>Are you a catfish?</h3>
+        {q5_answers.map((answer, index) => (
             <button key={index} onClick={() => updateAnswer(index)}>{answer}</button>
         ))}
         <br />
         <br />
-        <Link to={`/5/${id}`}>
+        <Link to={`/complete/${id}`}>
             <button disabled={isDisabled} onClick={updateForm}>Submit</button>
         </Link>
     </div>
