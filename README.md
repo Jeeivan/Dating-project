@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This application enables users to input information about their dating matches into a questionnaire. The questionnaire calculates a compatibility rating, making it easier for users to choose partners, particularly for those who encounter numerous matches on dating sites. The app employs a weighted scoring system for each question to determine which partners are the best match.
+This application enables users to input information about their dating matches into a questionnaire. The questionnaire calculates a compatibility rating, making it easier for users to choose partners, particularly for those who encounter numerous matches on dating sites. The application employs a weighted scoring system for each question to determine which partners are the best match.
 
 ## Table of Contents
 
