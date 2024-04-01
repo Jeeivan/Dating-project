@@ -16,7 +16,7 @@ This application enables users to input information about their dating matches i
 
 ## Deployment Link
 
-In the process of adding new features before deploying application
+In the process of adding features to application before deploying
 
 ## Technologies Used
 
