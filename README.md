@@ -133,7 +133,7 @@ async function createForm() {
 
 ```
 
-I am also pleased with my utilization of states to disable both the input field and the submit button once the user has submitted their name, ensuring that it cannot be changed and that the user cannot submit more than one form on the first page.
+I am also pleased with my utilization of states to disable both the input field and the submit button once the user has submitted their name, to ensure that it cannot be changed and that the user cannot submit more than one form on the first page.
 
 
 ## Key Learnings/Takeaways
