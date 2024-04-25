@@ -139,9 +139,3 @@ I am also pleased with my utilization of states to disable both the input field 
 ## Key Learnings/Takeaways
 
 This project was my first time using TypeScript for a full-stack project, and it provided several advantages. TypeScript's static typing helped catch errors during development, leading to fewer bugs and smoother deployments.
-
-## Future Improvements
-
-An area for improvement in this project is the absence of comprehensive documentation during the planning phase. Without detailed planning documents, challenges arose during development, particularly in deciding the most effective approach for handling answers and points.
-
-By doing so would likely result in a more efficient development process, fewer unforeseen challenges, and a more cohesive end product.
