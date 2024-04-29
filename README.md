@@ -138,4 +138,4 @@ I am also pleased with my utilization of states to disable both the input field 
 
 ## Key Learnings/Takeaways
 
-This project was my first time using TypeScript for a full-stack project, and it provided several advantages. TypeScript's static typing helped catch errors during development, leading to fewer bugs and smoother deployments.
+This project was my first time using TypeScript for a full-stack project, and it provided several advantages. TypeScript's static typing helped to catch errors during development, leading to fewer bugs and smoother deployments.
