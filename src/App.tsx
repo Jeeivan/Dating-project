@@ -7,12 +7,14 @@ import Page3 from './pages/Page3/Page3';
 import Page4 from './pages/Page4/Page4';
 import Complete from './pages/Complete/Complete';
 import Page5 from './pages/Page5/Page5';
+import Admin from './pages/Admin/Admin';
 
 function App() {
   return (
     <main className="App">
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='/1/:id' element={<Page1 />} />
         <Route path='/2/:id' element={<Page2 />} />
         <Route path='/3/:id' element={<Page3 />} />

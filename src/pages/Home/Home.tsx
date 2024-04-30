@@ -45,7 +45,6 @@ async function createForm() {
 
   return (
     <div className="page-container">
-        <div>Questionnaire</div>
         <h3>What is your name?</h3>
         <input className="all-inputs" type="text" value={name} onChange={handleInputChange} disabled={isSubmitDisabled}/>
             <button className="all-btns" onClick={createForm} disabled={isSubmitDisabled}>Submit</button>
