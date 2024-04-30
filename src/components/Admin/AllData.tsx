@@ -27,7 +27,7 @@ export default function AllData() {
         {allData.map((data, index) => (
             <div key={index}>
                 <p>{(data as any).name}</p>
-                <p>User ID- {(data as any).id}</p>
+                <p>User ID- {(data as any)._id}</p>
                 <p>Answers- {(data as any).answers}</p>
                 <p>Points- {(data as any).points}</p>
                 <p>Her Age- {(data as any).her_age}</p>
