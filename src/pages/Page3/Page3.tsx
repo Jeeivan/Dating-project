@@ -31,23 +31,60 @@ export default function Page3() {
         }
     }
 
-    function updateAnswer(index: number) {
-        setAnswer(q3_answers[index])
-        setPoints(q3_points[index])
+    function updateAnswer(event: any) {
+        const selectedIndex = event.target.selectedIndex
+        setAnswer(jobs[selectedIndex])
+        setPoints(jobPoints[selectedIndex])
         setIsDisabled(false)
     }
 
-    const q3_answers: string[] = ['Within 10min', 'Within 30min', 'Within 1 hour', '1 hour +']
-    const q3_points: number[] = [10, 20, 30, 40]
+    const jobs: string[] = [
+        "Software Engineer",
+        "Nurse",
+        "Marketing Manager",
+        "Graphic Designer",
+        "Sales Representative",
+        "Teacher",
+        "Accountant",
+        "Customer Service Representative",
+        "Data Analyst",
+        "Project Manager",
+        "Lawyer",
+        "Human Resources Manager",
+        "Electrician",
+        "Chef",
+        "Financial Analyst",
+        "Web Developer",
+        "Administrative Assistant",
+        "Pharmacist",
+        "Social Media Manager",
+        "Mechanical Engineer",
+        "Construction Worker",
+        "Content Writer",
+        "Veterinarian",
+        "Physical Therapist",
+        "Operations Manager",
+        "Dental Hygienist",
+        "Artist",
+        "Police Officer",
+        "Architect",
+        "Biomedical Engineer"
+    ];
+    const jobPoints = [
+        30, 20, 35, 25, 15, 20, 25, 15, 35, 40,
+        45, 30, 20, 20, 35, 30, 15, 40, 30, 35,
+        20, 25, 45, 40, 45, 25, 20, 35, 40, 35
+    ];
+    
 
   return (
-    <div>
-        <h3>How long does he take to respond to messages on average?</h3>
-        {q3_answers.map((answer, index) => (
-            <button key={index} onClick={() => updateAnswer(index)}>{answer}</button>
-        ))}
-        <br />
-        <br />
+    <div className="page-container">
+        <h3>What is his occupation?</h3>
+        <select className="all-inputs" onChange={updateAnswer}>
+            {jobs.map((job, index) => (
+                <option key={index} value={index}>{job}</option>
+            ))}
+        </select>
         <Link to={`/4/${id}`}>
             <button disabled={isDisabled} onClick={updateForm}>Submit</button>
         </Link>

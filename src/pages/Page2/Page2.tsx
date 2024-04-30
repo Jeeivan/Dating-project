@@ -34,11 +34,11 @@ export default function Page1() {
     
 
   return (
-    <div>
+    <div className="page-container">
         <h3>What is his age?</h3>
-        <input type="number" value={age} onChange={handleInputChange}/>
+        <input className="all-inputs" type="number" value={age} onChange={handleInputChange}/>
         <Link to={`/3/${id}`}>
-            <button onClick={updateForm}>Submit</button>
+            <button className="all-btns" onClick={updateForm}>Submit</button>
         </Link>
     </div>
 

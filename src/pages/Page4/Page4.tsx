@@ -42,10 +42,10 @@ export default function Page4() {
 
 
   return (
-    <div>
+    <div className="page-container">
         <h3>How do his friends describe him?</h3>
         {q4_answers.map((answer, index) => (
-            <button key={index} onClick={() => updateAnswer(index)}>{answer}</button>
+            <button className="all-btns" key={index} onClick={() => updateAnswer(index)}>{answer}</button>
         ))}
         <br />
         <br />

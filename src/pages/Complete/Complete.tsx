@@ -38,7 +38,7 @@ useEffect(() => {
         <h3>Congrats on finishing the questionnaire!</h3>
         <h2>You achieved a comptability score of: {totalPoints}</h2>
         <Link to="/">
-            <button>Start Over</button>
+            <button className="all-btns">Start Over</button>
         </Link>
         <br />
         <br />

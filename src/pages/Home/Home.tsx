@@ -44,11 +44,11 @@ async function createForm() {
 
 
   return (
-    <div>
+    <div className="page-container">
         <div>Questionnaire</div>
         <h3>What is your name?</h3>
-        <input type="text" value={name} onChange={handleInputChange} disabled={isSubmitDisabled}/>
-            <button onClick={createForm} disabled={isSubmitDisabled}>Submit</button>
+        <input className="all-inputs" type="text" value={name} onChange={handleInputChange} disabled={isSubmitDisabled}/>
+            <button className="all-btns" onClick={createForm} disabled={isSubmitDisabled}>Submit</button>
             <br />
             <br />
         <Link to={formId ? `/1/${formId}` : "#"}>
