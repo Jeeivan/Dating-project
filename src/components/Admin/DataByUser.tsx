@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function DataByUser() {
   return (
-    <div>DataByUser</div>
+    <div>
+    <input type="number" placeholder='Enter user ID'/>
+    <button className='all-btns'>Search</button>
+</div>
   )
 }

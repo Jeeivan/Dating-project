@@ -1,6 +1,6 @@
 import { useState } from "react"
 import AllData from "../../components/Admin/AllData"
-import DataByQestion from "../../components/Admin/DataByQestion"
+import DataByQuestion from "../../components/Admin/DataByQuestion"
 import DataByUser from "../../components/Admin/DataByUser"
 
 export default function Admin() {
@@ -22,7 +22,7 @@ export default function Admin() {
         {selectedOption && (
             <div>
                 {selectedOption === 'allData' && <AllData/>}
-                {selectedOption === 'allAnswersByQ' && <DataByQestion/>}
+                {selectedOption === 'allAnswersByQ' && <DataByQuestion/>}
                 {selectedOption === 'answersByUser' && <DataByUser/>}
             </div>
         )}
