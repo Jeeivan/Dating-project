@@ -51,6 +51,7 @@ useEffect(() => {
         <div>Q1- {(results as any).answers[0]} - {(results as any).points[0]} points</div>
         <div>Q2- {(results as any).answers[1]} - {(results as any).points[1]} points</div>
         <div>Q3- {(results as any).answers[2]} - {(results as any).points[2]} points</div>
+        <div>Q4- {(results as any).answers[3]} - {(results as any).points[3]} points</div>
             </>
         )}
     </div>
