@@ -9,6 +9,9 @@ import Complete from './pages/Complete/Complete';
 import Page5 from './pages/Page5/Page5';
 import Admin from './pages/Admin/Admin';
 import Page3_5 from './pages/Page3/Page3_5';
+import Message from './pages/Page4/Message';
+import Lines from './pages/Page4/Lines';
+import Comment from './pages/Page5/Comment';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path='/2/:id' element={<Page2 />} />
         <Route path='/3/:id' element={<Page3 />} />
         <Route path='/3_5/:id' element={<Page3_5 />} />
+        <Route path='/message/:id' element={<Message />} />
+        <Route path='/line/:id' element={<Lines />} />
+        <Route path='/comment/:id' element={<Comment />} />
         <Route path='/4/:id' element={<Page4 />} />
         <Route path='/5/:id' element={<Page5 />} />
         <Route path='/complete/:id' element={<Complete />} />
