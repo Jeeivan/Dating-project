@@ -50,8 +50,10 @@ useEffect(() => {
         <div>His Age: {(results as any).his_age}</div>
         <div>Q1- {(results as any).answers[0]} - {(results as any).points[0]} points</div>
         <div>Q2- {(results as any).answers[1]} - {(results as any).points[1]} points</div>
-        <div>Q3- {(results as any).answers[2]} - {(results as any).points[2]} points</div>
-        <div>Q4- {(results as any).answers[3]} - {(results as any).points[3]} points</div>
+        <div>Q3- {(results as any).answers[2]}</div>
+        <div>Q4- {(results as any).answers[3]} - {(results as any).points[2]} points</div>
+        <div>Q5- {(results as any).answers[4]} - {(results as any).points[3]} points</div>
+        <div>Q6- {(results as any).answers[5]} - {(results as any).points[4]} points</div>
             </>
         )}
     </div>

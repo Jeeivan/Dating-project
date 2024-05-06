@@ -11,8 +11,6 @@ interface AgeProps {
 export const Age: React.FC<AgeProps> = ({ fieldName, questionNum, inputName}) => {
     const { id } = useParams();
     const [age, setAge] = useState("")
-    console.log(fieldName);
-    
 
     const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setAge(e.target.value)
@@ -20,6 +18,8 @@ export const Age: React.FC<AgeProps> = ({ fieldName, questionNum, inputName}) =>
 
     async function updateForm() {
         try {
+            console.log("input: ", fieldName);
+            
             const response = await fetch(`http://localhost:3006/form/update/${id}`, {
                 method: "PUT",
                 headers: {
@@ -27,6 +27,7 @@ export const Age: React.FC<AgeProps> = ({ fieldName, questionNum, inputName}) =>
                 },
                 body: JSON.stringify({
                     [fieldName]: age
+                    
                 }),
             })
     

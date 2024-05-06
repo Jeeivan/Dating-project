@@ -12,6 +12,7 @@ import Page3_5 from './pages/Page3/Page3_5';
 import Message from './pages/Page4/Message';
 import Lines from './pages/Page4/Lines';
 import Comment from './pages/Page5/Comment';
+import Live from './pages/Page6/Live';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/message/:id' element={<Message />} />
         <Route path='/line/:id' element={<Lines />} />
         <Route path='/comment/:id' element={<Comment />} />
+        <Route path='/live/:id' element={<Live />} />
         <Route path='/4/:id' element={<Page4 />} />
         <Route path='/5/:id' element={<Page5 />} />
         <Route path='/complete/:id' element={<Complete />} />
