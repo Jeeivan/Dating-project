@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function AllData() {
     const [allData, setAlldata] = useState<any>([])
@@ -31,7 +32,7 @@ export default function AllData() {
             <div className='card-container' key={index}>
                 <div className='card'>
                 <p>{data.name}</p>
-                <p>User ID- {data._id}</p>
+                <p>User ID- <Link to={`/databyuser/${data._id}`}>{data._id}</Link></p>
                 <br />
                 <p>Answers-</p>
                 {data.answers.map((answer: string, index: number) => (

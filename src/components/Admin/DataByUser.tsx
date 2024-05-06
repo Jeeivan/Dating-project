@@ -1,15 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
 export default function DataByUser() {
     const [userId, setUserId] = useState('')
     const [results, setResults] = useState<any>([])
+    const { id } = useParams();
     console.log(userId);
+    console.log(id);
+    
+    useEffect(() => {
+        if (id) {
+            setUserId(id)
+            fetchDataByUser()
+        }
+    }, [id])
     
 
     async function fetchDataByUser() {
         try {   
             console.log("userid-", userId);
-            const response = await fetch (`http://localhost:3006/form/display/single/${userId}`)
+            const response = await fetch (`http://localhost:3006/form/display/single/${id || userId}`)
             const data = await response.json()
             
 
@@ -34,14 +44,14 @@ export default function DataByUser() {
                     <p>His age- {results.his_age}</p>
                     <br />
                     <p>Answers-</p>
-                {results.answers.map((answer: string, index: number) => (
+                {results.answers?.map((answer: string, index: number) => (
                     <div key={index}>
                         <p>{answer}</p>
                     </div>
                 ))}
                 <br />
                 <p>Points-</p>
-                {results.points.map((point: any, index: any) => (
+                {results.points?.map((point: any, index: any) => (
                     <div key={index}>
                         <p>{point}</p>
                     </div>
