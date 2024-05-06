@@ -34,3 +34,16 @@
   .all-inputs {
     margin: 10px;
   }
+
+  .card-container {
+    display: inline-block; 
+    margin: 10px; 
+  }
+  
+  .card {
+    border: 2px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  

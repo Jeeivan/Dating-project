@@ -32,8 +32,21 @@ export default function DataByUser() {
                     <p>Name- {results.name}</p>
                     <p>Her age- {results.her_age}</p>
                     <p>His age- {results.his_age}</p>
-                    <p>Answers- {results.answers}</p>
-                    <p>Points- {results.points}</p>
+                    <br />
+                    <p>Answers-</p>
+                {results.answers.map((answer: string, index: number) => (
+                    <div key={index}>
+                        <p>{answer}</p>
+                    </div>
+                ))}
+                <br />
+                <p>Points-</p>
+                {results.points.map((point: any, index: any) => (
+                    <div key={index}>
+                        <p>{point}</p>
+                    </div>
+                ))}
+                <br />
                 </div>
             )}
         </div>

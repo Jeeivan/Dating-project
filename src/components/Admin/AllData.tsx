@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 export default function AllData() {
-    const [allData, setAlldata] = useState([])
+    const [allData, setAlldata] = useState<any>([])
 
     async function fetchAllData() {
         try {
@@ -22,17 +22,36 @@ export default function AllData() {
         fetchAllData()
     }, [])
 
+    console.log(allData);
+    
+
   return (
     <div>
-        {allData.map((data, index) => (
-            <div key={index}>
-                <p>{(data as any).name}</p>
-                <p>User ID- {(data as any)._id}</p>
-                <p>Answers- {(data as any).answers}</p>
-                <p>Points- {(data as any).points}</p>
-                <p>Her Age- {(data as any).her_age}</p>
-                <p>His Age- {(data as any).his_age}</p>
+        {allData.map((data: any, index: any) => (
+            <div className='card-container' key={index}>
+                <div className='card'>
+                <p>{data.name}</p>
+                <p>User ID- {data._id}</p>
                 <br />
+                <p>Answers-</p>
+                {data.answers.map((answer: string, index: number) => (
+                    <div key={index}>
+                        <p>{answer}</p>
+                    </div>
+                ))}
+                <br />
+                <p>Points-</p>
+                {data.points.map((point: any, index: any) => (
+                    <div key={index}>
+                        <p>{point}</p>
+                    </div>
+                ))}
+                <br />
+                <p>Her Age- {data.her_age}</p>
+                <p>His Age- {data.his_age}</p>
+                <p>His Age- {data.his_age}</p>
+                <br />
+            </div>
             </div>
         ))}
     </div>

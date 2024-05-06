@@ -39,19 +39,19 @@ export const Page: React.FC<PageProps> = ({ question, answers, point, nextPage }
     }
 
     function updateAnswer(index: number) {
-        setAnswer(q4_answers[index])
-        setPoints(q4_points[index])
+        setAnswer(q_answers[index])
+        setPoints(q_points[index])
         setIsDisabled(false)
     }
 
-    const q4_answers: string[] = answers;
-    const q4_points: number[] = point
+    const q_answers: string[] = answers;
+    const q_points: number[] = point
 
 
   return (
     <div className="page-container">
         <h3>{question}</h3>
-        {q4_answers.map((answer, index) => (
+        {q_answers.map((answer, index) => (
             <button className="all-btns" key={index} onClick={() => updateAnswer(index)}>{answer}</button>
         ))}
         <br />
