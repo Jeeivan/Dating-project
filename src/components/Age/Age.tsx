@@ -14,7 +14,7 @@ export const Age: React.FC<AgeProps> = ({ fieldName, questionNum, inputName}) =>
     console.log(fieldName);
     
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setAge(e.target.value)
     }
 
@@ -40,10 +40,22 @@ export const Age: React.FC<AgeProps> = ({ fieldName, questionNum, inputName}) =>
         }
     }
 
+    const ageOptions = []
+    for (let i = 18; i <= 100; i ++) {
+        ageOptions.push(i)
+    }
+    console.log(ageOptions);
+    
+
   return (
     <div className="page-container">
         <h3>What is {inputName} age?</h3>
-        <input className="all-inputs" type="number" value={age} onChange={handleInputChange}/>
+        <select className="all-inputs" value={age} onChange={handleInputChange}>
+            <option value="">Select Age</option>
+            {ageOptions.map((age) => (
+                <option value={age} key={age}>{age}</option>
+            ))}
+        </select>
         <Link to={`/${questionNum}/${id}`}>
             <button className="all-btns" onClick={updateForm}>Submit</button>
         </Link>

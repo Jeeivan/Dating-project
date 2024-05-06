@@ -81,6 +81,7 @@ export default function Page3() {
     <div className="page-container">
         <h3>What is his occupation?</h3>
         <select className="all-inputs" onChange={updateAnswer}>
+            <option value="">Select Job</option>
             {jobs.map((job, index) => (
                 <option key={index} value={index}>{job}</option>
             ))}
