@@ -6,7 +6,7 @@ export default function First() {
     const { id } = useParams();
     const [message, setMessage] = useState('')
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value)
     }
 
@@ -35,7 +35,7 @@ export default function First() {
   return (
     <div className="page-container">
         <h3>What was his first message?</h3>
-        <input className="all-inputs" type="text" value={message} onChange={handleInputChange}/>
+        <textarea className="message-input" value={message} onChange={handleInputChange}> </textarea>
         <Link to={`/line/${id}`}>
             <button className="all-btns" onClick={updateForm}>Submit</button>
         </Link>
