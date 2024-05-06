@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function DataByUser() {
     const [userId, setUserId] = useState('')
-    const [results, setResults] = useState([])
+    const [results, setResults] = useState<any>([])
     console.log(userId);
     
 
@@ -29,11 +29,11 @@ export default function DataByUser() {
             <button className='all-btns' onClick={fetchDataByUser}>Search</button>
             {results && (
                 <div>
-                    <p>Name- {(results as any).name}</p>
-                    <p>Her age- {(results as any).her_age}</p>
-                    <p>His age- {(results as any).his_age}</p>
-                    <p>Answers- {(results as any).answers}</p>
-                    <p>Points- {(results as any).points}</p>
+                    <p>Name- {results.name}</p>
+                    <p>Her age- {results.her_age}</p>
+                    <p>His age- {results.his_age}</p>
+                    <p>Answers- {results.answers}</p>
+                    <p>Points- {results.points}</p>
                 </div>
             )}
         </div>
