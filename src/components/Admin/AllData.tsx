@@ -50,7 +50,6 @@ export default function AllData() {
                 <br />
                 <p>Her Age- {data.her_age}</p>
                 <p>His Age- {data.his_age}</p>
-                <p>His Age- {data.his_age}</p>
                 <br />
             </div>
             </div>

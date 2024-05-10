@@ -19,7 +19,7 @@ export default function DataByUser() {
     async function fetchDataByUser() {
         try {   
             console.log("userid-", userId);
-            const response = await fetch (`http://localhost:3006/form/display/single/${id || userId}`)
+            const response = await fetch (`http://localhost:3006/form/display/single/${userId || id}`)
             const data = await response.json()
             
 
