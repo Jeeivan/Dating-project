@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
-import { useState } from "react";
-import Picker from 'react-mobile-picker'
+import { useState, useEffect } from "react";
+import {JobPicker} from "../JobPicker/JobPicker";
 
 interface OccupationProps {
     inputName: string,
@@ -13,46 +13,18 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
     const [answer, setAnswer] = useState('')
     const [points, setPoints] = useState(0)
     const [isDisabled, setIsDisabled] = useState(true)
-    const [pickerValue, setPickerValue] = useState({
-        job: 'Please Select'
-      })
-      const selections: any = {
-        job: ['Please Select', "Software Engineer",
-        "Nurse",
-        "Marketing Manager",
-        "Graphic Designer",
-        "Sales Representative",
-        "Teacher",
-        "Accountant",
-        "Customer Service Representative",
-        "Data Analyst",
-        "Project Manager",
-        "Lawyer",
-        "Human Resources Manager",
-        "Electrician",
-        "Chef",
-        "Financial Analyst",
-        "Web Developer",
-        "Administrative Assistant",
-        "Pharmacist",
-        "Social Media Manager",
-        "Mechanical Engineer",
-        "Construction Worker",
-        "Content Writer",
-        "Veterinarian",
-        "Physical Therapist",
-        "Operations Manager",
-        "Dental Hygienist",
-        "Artist",
-        "Police Officer",
-        "Architect",
-        "Biomedical Engineer"]
-      }
-
-      console.log(pickerValue.job);
+    const [isMobile, setIsMobile] = useState(false)
       
       console.log(answer);
       
+      useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 768)
+        }
+        window.addEventListener('resize', handleResize)
+        handleResize()
+        return () => window.removeEventListener('resize', handleResize)
+      })
       
 
     async function updateForm() {
@@ -85,48 +57,39 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
         setIsDisabled(false)
     }
 
-    // function handleAnswer() {
-    //     const selectedJob = pickerValue.job
-    //     console.log(selectedJob);
-    //     setAnswer(selectedJob)
-    //     const index = jobs.indexOf(selectedJob)
-    //     console.log(index);
-    //     setPoints(jobPoints[index])
-    //     setIsDisabled(false)
-    // }
-
     const jobs: string[] = [
-        "Software Engineer",
-        "Nurse",
-        "Marketing Manager",
-        "Graphic Designer",
-        "Sales Representative",
-        "Teacher",
-        "Accountant",
-        "Customer Service Representative",
-        "Data Analyst",
-        "Project Manager",
-        "Lawyer",
-        "Human Resources Manager",
-        "Electrician",
-        "Chef",
-        "Financial Analyst",
-        "Web Developer",
-        "Administrative Assistant",
-        "Pharmacist",
-        "Social Media Manager",
-        "Mechanical Engineer",
-        "Construction Worker",
-        "Content Writer",
-        "Veterinarian",
-        "Physical Therapist",
-        "Operations Manager",
-        "Dental Hygienist",
-        "Artist",
-        "Police Officer",
-        "Architect",
-        "Biomedical Engineer"
-    ];
+      'Accountant',
+      'Administrative Assistant',
+      'Architect',
+      'Artist',
+      'Biomedical Engineer',
+      'Chef',
+      'Construction Worker',
+      'Content Writer',
+      'Customer Service Representative',
+      'Data Analyst',
+      'Dental Hygienist',
+      'Electrician',
+      'Financial Analyst',
+      'Graphic Designer',
+      'Human Resources Manager',
+      'Lawyer',
+      'Marketing Manager',
+      'Mechanical Engineer',
+      'Nurse',
+      'Operations Manager',
+      'Pharmacist',
+      'Physical Therapist',
+      'Police Officer',
+      'Project Manager',
+      'Sales Representative',
+      'Social Media Manager',
+      'Software Engineer',
+      'Teacher',
+      'Veterinarian',
+      'Web Developer'
+  ];
+  
     const jobPoints = [
         30, 20, 35, 25, 15, 20, 25, 15, 35, 40,
         45, 30, 20, 20, 35, 30, 15, 40, 30, 35,
@@ -136,27 +99,22 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
   return (
     <div className="page-container">
     <h3>What is {inputName} occupation?</h3>
-    <select className="all-inputs" onChange={updateAnswer}>
-        <option value="">Select Job</option>
-        {jobs.map((job, index) => (
-            <option key={index} value={index}>{job}</option>
-        ))}
-    </select>
 
-    <Picker value={pickerValue} onChange={setPickerValue}>
-      {Object.keys(selections).map(job => (
-        <Picker.Column key={job} name={job}>
-          {selections[job].map((option: any) => (
-            <Picker.Item key={option} value={option}>
-              {option}
-            </Picker.Item> 
-          ))}
-        </Picker.Column>
+    {isMobile ? (
+      <JobPicker questionNum={questionNum}/>
+    ) : (
+      <>
+      <select className="all-inputs" onChange={updateAnswer}>
+      <option value="">Please Select</option>
+      {jobs.map((job, index) => (
+          <option key={index} value={index}>{job}</option>
       ))}
-    </Picker>
+  </select>
     <Link to={`/${questionNum}/${id}`}>
-        <button disabled={isDisabled} onClick={updateForm}>Submit</button>
+        <button onClick={updateForm}>Submit</button>
     </Link>
+    </>
+    )}
 </div>
   )
 }
