@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { updateComptability } from "../../utlities/updateCompatability";
 
 export default function Complete() {
     const { id } = useParams();
     const [totalPoints, setTotalPoints] = useState(0)
-    const [results, setResults] = useState([])
+    const [results, setResults] = useState<any>([])
+    const [bool, setBool] = useState(false)
 
     async function fetchFormData() {
     try {
@@ -28,10 +30,22 @@ export default function Complete() {
     }
 }
 
+
 useEffect(() => {
     fetchFormData()
-    // eslint-disable-next-line
 }, [id])
+
+useEffect(() => {
+    updateComptability(id, bool);
+}, [bool, id]);
+
+useEffect(() => {
+    setBool(totalPoints > 130);
+}, [totalPoints]);
+
+
+console.log(bool);
+
 
   return (
     <div>
@@ -42,18 +56,18 @@ useEffect(() => {
         </Link>
         <br />
         <br />
-        {results && (results as any).answers && (results as any).points && (
+        {results && results.answers && results.points && (
             <>
          <h4>Your results:</h4>
-        <div>Name: {(results as any).name}</div>
-        <div>Your Age: {(results as any).her_age}</div>
-        <div>His Age: {(results as any).his_age}</div>
-        <div>Q1- {(results as any).answers[0]} - {(results as any).points[0]} points</div>
-        <div>Q2- {(results as any).answers[1]} - {(results as any).points[1]} points</div>
-        <div>Q3- {(results as any).answers[2]}</div>
-        <div>Q4- {(results as any).answers[3]} - {(results as any).points[2]} points</div>
-        <div>Q5- {(results as any).answers[4]} - {(results as any).points[3]} points</div>
-        <div>Q6- {(results as any).answers[5]} - {(results as any).points[4]} points</div>
+        <div>Name: {results.name}</div>
+        <div>Your Age: {results.her_age}</div>
+        <div>His Age: {results.his_age}</div>
+        <div>Q1- {results.answers[0]} - {results.points[0]} points</div>
+        <div>Q2- {results.answers[1]} - {results.points[1]} points</div>
+        <div>Q3- {results.answers[2]}</div>
+        <div>Q4- {results.answers[3]} - {results.points[2]} points</div>
+        <div>Q5- {results.answers[4]} - {results.points[3]} points</div>
+        <div>Q6- {results.answers[5]} - {results.points[4]} points</div>
             </>
         )}
     </div>
