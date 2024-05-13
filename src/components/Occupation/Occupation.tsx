@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import {JobPicker} from "../JobPicker/JobPicker";
+import { updateForm } from "../../utlities/updateForm";
 
 interface OccupationProps {
     inputName: string,
@@ -26,29 +27,6 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
         return () => window.removeEventListener('resize', handleResize)
       })
       
-
-    async function updateForm() {
-        try {
-            const response = await fetch(`http://localhost:3006/form/add/${id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    answers: answer,
-                    points: points
-                }),
-            })
-
-            if (response.ok) {
-                console.log("Form updated successfully");
-            } else {
-                console.error("Error updating form")
-            }
-        } catch (error) {
-            console.error("Error updating form", error)
-        }
-    }
 
     function updateAnswer(event: React.ChangeEvent<HTMLSelectElement>) {
         const selectedIndex = event.target.selectedIndex
@@ -111,7 +89,7 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
       ))}
   </select>
     <Link to={`/${questionNum}/${id}`}>
-        <button onClick={updateForm}>Submit</button>
+        <button onClick={() => updateForm(id, answer, points)}>Submit</button>
     </Link>
     </>
     )}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Picker from 'react-mobile-picker'
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { updateForm } from "../../utlities/updateForm";
 
 interface JobPickerProps {
     questionNum: string
@@ -50,28 +51,7 @@ export const JobPicker: React.FC<JobPickerProps> = ({questionNum}) => {
     //         'Web Developer'
     //     ]
     // };
-    async function updateForm() {
-        try {
-            const response = await fetch(`http://localhost:3006/form/add/${id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    answers: answer,
-                    points: points
-                }),
-            })
 
-            if (response.ok) {
-                console.log("Form updated successfully");
-            } else {
-                console.error("Error updating form")
-            }
-        } catch (error) {
-            console.error("Error updating form", error)
-        }
-    }
 
     const selections: any = {
         job: [
@@ -115,20 +95,9 @@ export const JobPicker: React.FC<JobPickerProps> = ({questionNum}) => {
             </Picker.Column>
         </Picker>
         <Link to={`/${questionNum}/${id}`}>
-        <button onClick={updateForm}>Submit</button>
+        <button onClick={() => updateForm(id, answer, points)}>Submit</button>
         </Link>
     </div>
 )
 }
 
-//     <Picker value={pickerValue} onChange={setPickerValue}>
-//     {Object.keys(selections).map(job => (
-//       <Picker.Column key={job} name={job}>
-//         {selections[job].map((option: any) => (
-//           <Picker.Item key={option} value={option}>
-//             {option}
-//           </Picker.Item> 
-//         ))}
-//       </Picker.Column>
-//     ))}
-//   </Picker>
