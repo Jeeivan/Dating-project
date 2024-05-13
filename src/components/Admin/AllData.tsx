@@ -29,7 +29,7 @@ export default function AllData() {
   return (
     <div>
         {allData.map((data: any, index: any) => (
-            <div className='card-container' key={index}>
+            <div className={data.green_flag ? 'card-container green-background' : 'card-container red-background'} key={index}>
                 <div className='card'>
                 <p>{data.name}</p>
                 <p>User ID- <Link to={`/databyuser/${data._id}`}>{data._id}</Link></p>

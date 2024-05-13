@@ -53,3 +53,10 @@
     margin: 10px;
   }
   
+  .green-background {
+    background-color: greenyellow;
+}
+
+.red-background {
+    background-color: red;
+}
