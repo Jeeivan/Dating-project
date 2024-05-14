@@ -139,3 +139,5 @@ I am also pleased with my utilization of states to disable both the input field 
 ## Key Learnings/Takeaways
 
 This project was my first time using TypeScript for a full-stack project, and it provided several advantages. TypeScript's static typing helped to catch errors during development, leading to fewer bugs and smoother deployments.
+
+Was able to get more familiar in making components that can be reused so that I do not have copy and paste the same code being used for multiple pages. In addition with this, I was also able to get more experience with passing props between pages and their components along with the use of interfaces in typescript to prevent errors from occuring.
