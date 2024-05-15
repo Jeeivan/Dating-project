@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { updateComptability } from "../../utlities/updateCompatability";
+import { FormData } from "../../utlities/FormData";
 
 export default function Complete() {
     const { id } = useParams();
     const [totalPoints, setTotalPoints] = useState(0)
-    const [results, setResults] = useState<any>([])
+    const [results, setResults] = useState<FormData | null>(null)
     const [bool, setBool] = useState(false)
 
     async function fetchFormData() {
@@ -33,6 +34,7 @@ export default function Complete() {
 
 useEffect(() => {
     fetchFormData()
+    // eslint-disable-next-line
 }, [id])
 
 useEffect(() => {

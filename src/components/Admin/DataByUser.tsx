@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import { FormData } from "./AllData";
 
 export default function DataByUser() {
     const [userId, setUserId] = useState('')
-    const [results, setResults] = useState<any>([])
+    const [results, setResults] = useState<FormData | null>(null)
     const { id } = useParams();
     console.log(userId);
     console.log(id);
@@ -13,6 +14,7 @@ export default function DataByUser() {
             setUserId(id)
             fetchDataByUser()
         }
+        // eslint-disable-next-line
     }, [id])
     
 
@@ -51,7 +53,7 @@ export default function DataByUser() {
                 ))}
                 <br />
                 <p>Points-</p>
-                {results.points?.map((point: any, index: any) => (
+                {results.points?.map((point: number, index: number) => (
                     <div key={index}>
                         <p>{point}</p>
                     </div>

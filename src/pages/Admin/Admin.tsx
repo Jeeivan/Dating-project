@@ -6,7 +6,7 @@ import DataByUser from "../../components/Admin/DataByUser"
 export default function Admin() {
     const [selectedOption, setSelectedOption] = useState('')
 
-    const handleSelectChange = (e: any) => {
+    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedOption(e.target.value)
     }
 

@@ -1,8 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+export interface FormData {
+    name: string;
+    her_age: number;
+    his_age: number;
+    answers: string[];
+    points: number[];
+    green_flag: boolean;
+    _id: string;
+}
+
 export default function AllData() {
-    const [allData, setAlldata] = useState<any>([])
+    const [allData, setAlldata] = useState<FormData[]>([])
 
     async function fetchAllData() {
         try {
@@ -26,34 +36,39 @@ export default function AllData() {
     console.log(allData);
     
 
-  return (
-    <div>
-        {allData.map((data: any, index: any) => (
-            <div className={data.green_flag ? 'card-container green-background' : 'card-container red-background'} key={index}>
+    return (
+        <div>
+          {allData ? (
+            allData.map((data: FormData, index: number) => (
+              <div className={data.green_flag ? 'card-container green-background' : 'card-container red-background'} key={index}>
                 <div className='card'>
-                <p>{data.name}</p>
-                <p>User ID- <Link to={`/databyuser/${data._id}`}>{data._id}</Link></p>
-                <br />
-                <p>Answers-</p>
-                {data.answers.map((answer: string, index: number) => (
+                  <p>{data.name}</p>
+                  <p>User ID- <Link to={`/databyuser/${data._id}`}>{data._id}</Link></p>
+                  <br />
+                  <p>Answers-</p>
+                  {data.answers.map((answer: string, index: number) => (
                     <div key={index}>
-                        <p>{answer}</p>
+                      <p>{answer}</p>
                     </div>
-                ))}
-                <br />
-                <p>Points-</p>
-                {data.points.map((point: any, index: any) => (
+                  ))}
+                  <br />
+                  <p>Points-</p>
+                  {data.points.map((point: number, index: number) => (
                     <div key={index}>
-                        <p>{point}</p>
+                      <p>{point}</p>
                     </div>
-                ))}
-                <br />
-                <p>Her Age- {data.her_age}</p>
-                <p>His Age- {data.his_age}</p>
-                <br />
-            </div>
-            </div>
-        ))}
-    </div>
-  )
+                  ))}
+                  <br />
+                  <p>Her Age- {data.her_age}</p>
+                  <p>His Age- {data.his_age}</p>
+                  <br />
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No data available</p>
+          )}
+        </div>
+      );
+      
 }
