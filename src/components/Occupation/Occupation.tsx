@@ -47,15 +47,20 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
       'Customer Service Representative',
       'Data Analyst',
       'Dental Hygienist',
+      'Dentist',
+      'Doctor',
       'Electrician',
+      'Entertainer',
       'Financial Analyst',
       'Graphic Designer',
       'Human Resources Manager',
+      'Influencer',
       'Lawyer',
       'Marketing Manager',
       'Mechanical Engineer',
       'Nurse',
       'Operations Manager',
+      'Personal Trainer',
       'Pharmacist',
       'Physical Therapist',
       'Police Officer',
@@ -64,19 +69,54 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
       'Social Media Manager',
       'Software Engineer',
       'Teacher',
+      'Unemployed',
       'Veterinarian',
       'Web Developer'
-  ];
-  
-    const jobPoints = [
-        30, 20, 35, 25, 15, 20, 25, 15, 35, 40,
-        45, 30, 20, 20, 35, 30, 15, 40, 30, 35,
-        20, 25, 45, 40, 45, 25, 20, 35, 40, 35
     ];
+    
+    const jobPoints: number[] = [
+      4,  // Accountant
+      4,  // Administrative Assistant
+      4,  // Architect
+      1,  // Artist
+      4,  // Biomedical Engineer
+      1,  // Chef
+      2,  // Construction Worker
+      4,  // Content Writer
+      4,  // Customer Service Representative
+      4,  // Data Analyst
+      4,  // Dental Hygienist
+      3,  // Dentist
+      3,  // Doctor
+      2,  // Electrician
+      1,  // Entertainer
+      1,  // Financial Analyst
+      3,  // Graphic Designer
+      4,  // Human Resources Manager
+      1,  // Influencer
+      3,  // Lawyer
+      1,  // Marketing Manager
+      4,  // Mechanical Engineer
+      3,  // Nurse
+      3,  // Operations Manager
+      1,  // Personal Trainer
+      3,  // Pharmacist
+      3,  // Physical Therapist
+      1,  // Police Officer
+      4,  // Project Manager
+      1,  // Sales Representative
+      2,  // Social Media Manager
+      4,  // Software Engineer
+      4,  // Teacher
+      1,  // Unemployed
+      4,  // Veterinarian
+      4   // Web Developer
+    ];
+    
 
   return (
     <div className="page-container">
-    <h3>What is {inputName} occupation?</h3>
+    <h3>What is {inputName} job?</h3>
 
     {isMobile ? (
       <JobPicker questionNum={questionNum}/>

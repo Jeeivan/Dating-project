@@ -16,54 +16,49 @@ export const JobPicker: React.FC<JobPickerProps> = ({questionNum}) => {
       })
       const [answer, setAnswer] = useState('')
       const [points, setPoints] = useState(0)
-    //   const selections: any = {
-    //     job: [
-    //       'Please Select',
-    //         'Accountant',
-    //         'Administrative Assistant',
-    //         'Architect',
-    //         'Artist',
-    //         'Biomedical Engineer',
-    //         'Chef',
-    //         'Construction Worker',
-    //         'Content Writer',
-    //         'Customer Service Representative',
-    //         'Data Analyst',
-    //         'Dental Hygienist',
-    //         'Electrician',
-    //         'Financial Analyst',
-    //         'Graphic Designer',
-    //         'Human Resources Manager',
-    //         'Lawyer',
-    //         'Marketing Manager',
-    //         'Mechanical Engineer',
-    //         'Nurse',
-    //         'Operations Manager',
-    //         'Pharmacist',
-    //         'Physical Therapist',
-    //         'Police Officer',
-    //         'Project Manager',
-    //         'Sales Representative',
-    //         'Social Media Manager',
-    //         'Software Engineer',
-    //         'Teacher',
-    //         'Veterinarian',
-    //         'Web Developer'
-    //     ]
-    // };
 
 
     const selections: any = {
         job: [
-            { title: 'Accountant', points: 30 },
-            { title: 'Administrative Assistant', points: 20 },
-            { title: 'Architect', points: 35 },
-            { title: 'Artist', points: 25 },
-            // Add other jobs with their corresponding points here
+          { title: 'Accountant', points: 4 },
+          { title: 'Administrative Assistant', points: 4 },
+          { title: 'Architect', points: 4 },
+          { title: 'Artist', points: 1 },
+          { title: 'Biomedical Engineer', points: 4 },
+          { title: 'Chef', points: 1 },
+          { title: 'Construction Worker', points: 2 },
+          { title: 'Content Writer', points: 4 },
+          { title: 'Customer Service Representative', points: 4 },
+          { title: 'Data Analyst', points: 4 },
+          { title: 'Dental Hygienist', points: 4 },
+          { title: 'Dentist', points: 3 },
+          { title: 'Doctor', points: 3 },
+          { title: 'Electrician', points: 2 },
+          { title: 'Entertainer', points: 1 },
+          { title: 'Financial Analyst', points: 1 },
+          { title: 'Graphic Designer', points: 3 },
+          { title: 'Human Resources Manager', points: 4 },
+          { title: 'Influencer', points: 1 },
+          { title: 'Lawyer', points: 3 },
+          { title: 'Marketing Manager', points: 1 },
+          { title: 'Mechanical Engineer', points: 4 },
+          { title: 'Nurse', points: 3 },
+          { title: 'Operations Manager', points: 3 },
+          { title: 'Personal Trainer', points: 1 },
+          { title: 'Pharmacist', points: 3 },
+          { title: 'Physical Therapist', points: 3 },
+          { title: 'Police Officer', points: 1 },
+          { title: 'Project Manager', points: 4 },
+          { title: 'Sales Representative', points: 1 },
+          { title: 'Social Media Manager', points: 2 },
+          { title: 'Software Engineer', points: 4 },
+          { title: 'Teacher', points: 4 },
+          { title: 'Unemployed', points: 1 },
+          { title: 'Veterinarian', points: 4 },
+          { title: 'Web Developer', points: 4 }
         ]
-    };
-
-    
+      };
+      
 
     function updateAnswer(option: any) {
         const selectedOption = selections.job.find((jobOption: any) => jobOption.title === option.job)
