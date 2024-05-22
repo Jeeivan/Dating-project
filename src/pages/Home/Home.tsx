@@ -51,7 +51,7 @@ async function createForm() {
             <button className="all-btns" onClick={createForm} disabled={isSubmitDisabled}>Submit</button>
             <br />
             <br />
-        <Link to={formId ? `/1/${formId}` : "#"}>
+        <Link to={formId ? `/felon/${formId}` : "#"}>
             <button disabled={isDisabled}>Press here to start the questionnaire</button>
         </Link>
     </div>

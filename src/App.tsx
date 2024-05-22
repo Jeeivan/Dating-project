@@ -14,6 +14,8 @@ import Lines from './pages/Page4/Lines';
 import Comment from './pages/Page5/Comment';
 import Live from './pages/Page6/Live';
 import DataByUser from './components/Admin/DataByUser';
+import Height from './pages/Height/Height';
+import Felon from './pages/Felon/Felon';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/admin' element={<Admin />} />
+        <Route path='/felon/:id' element={<Felon />} />
+        <Route path='/height/:id' element={<Height />} />
         <Route path='/1/:id' element={<Page1 />} />
         <Route path='/2/:id' element={<Page2 />} />
         <Route path='/3/:id' element={<Page3 />} />
