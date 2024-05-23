@@ -42,7 +42,7 @@ useEffect(() => {
 }, [bool, id]);
 
 useEffect(() => {
-    setBool(totalPoints > 130);
+    setBool(totalPoints > 21);
 }, [totalPoints]);
 
 
@@ -61,15 +61,18 @@ console.log(bool);
         {results && results.answers && results.points && (
             <>
          <h4>Your results:</h4>
+         <br />
         <div>Name: {results.name}</div>
-        <div>Your Age: {results.her_age}</div>
-        <div>His Age: {results.his_age}</div>
+        <br />
         <div>Q1- {results.answers[0]} - {results.points[0]} points</div>
-        <div>Q2- {results.answers[1]} - {results.points[1]} points</div>
-        <div>Q3- {results.answers[2]}</div>
-        <div>Q4- {results.answers[3]} - {results.points[2]} points</div>
-        <div>Q5- {results.answers[4]} - {results.points[3]} points</div>
-        <div>Q6- {results.answers[5]} - {results.points[4]} points</div>
+        <div>Q2- Your Age: {results.her_age}</div>
+        <div>Q3- His Age: {results.his_age}</div>
+        <div>Q4- {results.answers[1]} - {results.points[1]} points</div>
+        <div>Q5- {results.answers[2]} - {results.points[2]} points</div>
+        <div>Q6- {results.answers[3]} - {results.points[3]} points</div>
+        <div>Q7- {results.answers[4]} - {results.points[4]} points</div>
+        <div>Q8- {results.answers[5]} - {results.points[5]} points</div>
+        <div>Q9- {results.answers[6]} - {results.points[6]} points</div>
             </>
         )}
     </div>
