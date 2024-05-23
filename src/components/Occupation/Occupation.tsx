@@ -5,15 +5,14 @@ import { updateForm } from "../../utlities/updateForm";
 import { AllPickers } from "../JobPicker/Picker";
 
 interface OccupationProps {
-    inputName: string,
-    questionNum: string
+    inputName: string;
+    questionNum: string;
 }
 
 export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) => {
     const { id } = useParams();
     const [answer, setAnswer] = useState('')
     const [points, setPoints] = useState(0)
-    const [isDisabled, setIsDisabled] = useState(true)
     const [isMobile, setIsMobile] = useState(false)
       
       console.log(answer);
@@ -32,7 +31,6 @@ export const Occupation: React.FC<OccupationProps> = ({inputName, questionNum}) 
         const selectedIndex = event.target.selectedIndex
         setAnswer(jobs[selectedIndex - 1])
         setPoints(jobPoints[selectedIndex - 1])
-        setIsDisabled(false)
     }
 
     const jobs: string[] = [
