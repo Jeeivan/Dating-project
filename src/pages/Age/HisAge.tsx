@@ -1,0 +1,76 @@
+import React from 'react'
+import { AgeSelections } from '../../components/Age/AgeSelections';
+
+export default function HisAge() {
+  
+    const ageSelections = [
+        { title: '18', points: 0 },
+        { title: '19', points: 0 },
+        { title: '20', points: 0 },
+        { title: '21', points: 0 },
+        { title: '22', points: 0 },
+        { title: '23', points: 0 },
+        { title: '24', points: 0 },
+        { title: '25', points: 0 },
+        { title: '26', points: 0 },
+        { title: '27', points: 0 },
+        { title: '28', points: 0 },
+        { title: '29', points: 0 },
+        { title: '30', points: 0 },
+        { title: '31', points: 0 },
+        { title: '32', points: 0 },
+        { title: '33', points: 0 },
+        { title: '34', points: 0 },
+        { title: '35', points: 0 },
+        { title: '36', points: 0 },
+        { title: '37', points: 0 },
+        { title: '38', points: 0 },
+        { title: '39', points: 0 },
+        { title: '40', points: 0 },
+        { title: '41', points: 0 },
+        { title: '42', points: 0 },
+        { title: '43', points: 0 },
+        { title: '44', points: 0 },
+        { title: '45', points: 0 },
+        { title: '46', points: 0 },
+        { title: '47', points: 0 },
+        { title: '48', points: 0 },
+        { title: '49', points: 0 },
+        { title: '50', points: 0 },
+        { title: '51', points: 0 },
+        { title: '52', points: 0 },
+        { title: '53', points: 0 },
+        { title: '54', points: 0 },
+        { title: '55', points: 0 },
+        { title: '56', points: 0 },
+        { title: '57', points: 0 },
+        { title: '58', points: 0 },
+        { title: '59', points: 0 },
+        { title: '60', points: 0 },
+        { title: '61', points: 0 },
+        { title: '62', points: 0 },
+        { title: '63', points: 0 },
+        { title: '64', points: 0 },
+        { title: '65', points: 0 },
+        { title: '66', points: 0 },
+        { title: '67', points: 0 },
+        { title: '68', points: 0 },
+        { title: '69', points: 0 },
+        { title: '70', points: 0 },
+        { title: '71', points: 0 },
+        { title: '72', points: 0 },
+        { title: '73', points: 0 },
+        { title: '74', points: 0 },
+        { title: '75', points: 0 },
+        { title: '76', points: 0 },
+        { title: '77', points: 0 },
+        { title: '78', points: 0 },
+        { title: '79', points: 0 },
+        { title: '80', points: 0 }
+      ];
+      
+    
+  return (
+    <AgeSelections question='What is his age?' questionNum='height' selections={ageSelections} />
+  )
+}

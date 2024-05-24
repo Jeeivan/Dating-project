@@ -30,6 +30,7 @@ export const AllPickers: React.FC<JobPickerProps> = ({questionNum, selections}) 
         console.log(selectedOption);
         if (selectedOption) {
             setAnswer(selectedOption.title)
+            localStorage.setItem('herAge', selectedOption.title)
             setPoints(selectedOption.points)
         }
     }

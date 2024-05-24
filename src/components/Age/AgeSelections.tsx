@@ -2,26 +2,30 @@ import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { updateForm } from "../../utlities/updateForm";
-import { AllPickers } from "../JobPicker/Picker";
+import { AgePicker } from "./AgePicker";
 
 interface Selection {
     title: string;
     points: number;
 }
 
-interface SelectionsProps {
+interface AgeSelectionsProps {
     question: string;
     questionNum: string;
     selections: Selection[];
 }
 
-export const Selections: React.FC<SelectionsProps> = ({ question, questionNum, selections }) => {
+export const AgeSelections: React.FC<AgeSelectionsProps> = ({ question, questionNum, selections }) => {
     const { id } = useParams();
     const [answer, setAnswer] = useState('')
     const [points, setPoints] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
+    const herAgeString : string | null = localStorage.getItem('answer')
+    const herAge :number = herAgeString ? parseInt(herAgeString) : NaN;
+    console.log("Her Age: ", herAge);
+    
       
-      console.log(answer);
+      console.log("His age: ", answer);
       
       useEffect(() => {
         const handleResize = () => {
@@ -47,7 +51,7 @@ export const Selections: React.FC<SelectionsProps> = ({ question, questionNum, s
     <div className="page-container">
     <h3>{question}</h3>
     {isMobile ? (
-      <AllPickers questionNum={questionNum} selections={selections}/>
+      <AgePicker questionNum={questionNum} selections={selections}/>
     ) : (
       <>
       <select className="all-inputs" onChange={updateAnswer}>
