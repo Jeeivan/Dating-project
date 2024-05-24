@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { updateForm } from "../../utlities/updateForm";
 import { AgePicker } from "./AgePicker";
+import { calculatePoints } from "../../utlities/calculatePoints";
 
 interface Selection {
     title: string;
@@ -20,12 +21,11 @@ export const AgeSelections: React.FC<AgeSelectionsProps> = ({ question, question
     const [answer, setAnswer] = useState('')
     const [points, setPoints] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
-    const herAgeString : string | null = localStorage.getItem('answer')
+    const herAgeString : string | null = localStorage.getItem('herAge')
     const herAge :number = herAgeString ? parseInt(herAgeString) : NaN;
     console.log("Her Age: ", herAge);
     
       
-      console.log("His age: ", answer);
       
       useEffect(() => {
         const handleResize = () => {
@@ -39,9 +39,12 @@ export const AgeSelections: React.FC<AgeSelectionsProps> = ({ question, question
 
     function updateAnswer(event: React.ChangeEvent<HTMLSelectElement>) {
         const selectedIndex = event.target.selectedIndex
+        const hisAgeString = selections[selectedIndex - 1].title
+        const hisAge :number = hisAgeString ? parseInt(hisAgeString) : NaN;
+        console.log("His age: ", hisAge);
         if (selectedIndex > 0) {
             setAnswer(selections[selectedIndex - 1].title)
-            setPoints(selections[selectedIndex - 1].points)
+            setPoints(calculatePoints(herAge, hisAge))
         }
     }
 

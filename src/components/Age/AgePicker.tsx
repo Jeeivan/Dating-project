@@ -3,6 +3,7 @@ import Picker from 'react-mobile-picker'
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { updateForm } from "../../utlities/updateForm";
+import { calculatePoints } from "../../utlities/calculatePoints";
 
 interface Selection {
     title: string;
@@ -31,7 +32,7 @@ export const AgePicker: React.FC<AgePickerProps> = ({questionNum, selections}) =
         const selectedOption = selections.find((jobOption: any) => jobOption.title === option.job)
         const hisAgeString = selectedOption?.title
         const hisAge :number = hisAgeString ? parseInt(hisAgeString) : NaN;
-        console.log("his age: ", hisAge);
+        console.log("His age: ", hisAge);
         if (selectedOption) {
             setAnswer(selectedOption.title)
             setPoints(calculatePoints(herAge, hisAge))
@@ -42,48 +43,6 @@ export const AgePicker: React.FC<AgePickerProps> = ({questionNum, selections}) =
         updateAnswer(pickerValue)
         // eslint-disable-next-line
     }, [pickerValue])
-
-
-    function calculatePoints(herAge: number, hisAge: number) {
-        const ageDifference = hisAge - herAge
-        let points = 0;
-        
-        if (herAge >= 18 && herAge <= 21) {
-            if (ageDifference <= 2) points = 4;
-            else if (ageDifference === 3) points = 3;
-            else if (ageDifference >= 4 && ageDifference <= 5) points = 1;
-            else if (ageDifference >= 5 && ageDifference <= 8) points = 0;
-            else if (ageDifference > 8) points = 0;
-        } else if (herAge >= 22 && herAge <= 24) {
-            if (ageDifference <= 2) points = 4;
-            else if (ageDifference === 3) points = 4;
-            else if (ageDifference >= 4 && ageDifference <= 5) points = 3;
-            else if (ageDifference >= 5 && ageDifference <= 8) points = 2;
-            else if (ageDifference > 8) points = 0;
-        } else if (herAge >= 25 && herAge <= 29) {
-            if (ageDifference <= 2) points = 4;
-            else if (ageDifference === 3) points = 4;
-            else if (ageDifference >= 4 && ageDifference <= 5) points = 4;
-            else if (ageDifference >= 5 && ageDifference <= 8) points = 2;
-            else if (ageDifference > 8) points = 0;
-        } else if (herAge >= 30 && herAge <= 35) {
-            if (ageDifference <= 2) points = 4;
-            else if (ageDifference === 3) points = 4;
-            else if (ageDifference >= 4 && ageDifference <= 5) points = 4;
-            else if (ageDifference >= 5 && ageDifference <= 8) points = 3;
-            else if (ageDifference > 8) points = 2;
-        } else if (herAge >= 36) {
-            if (ageDifference <= 2) points = 4;
-            else if (ageDifference === 3) points = 4;
-            else if (ageDifference >= 4 && ageDifference <= 5) points = 4;
-            else if (ageDifference >= 5 && ageDifference <= 8) points = 4;
-            else if (ageDifference > 8) points = 3;
-        }
-        console.log(points);
-        
-        return points;
-    }
-
     
 
   return (

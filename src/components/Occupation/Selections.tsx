@@ -37,6 +37,7 @@ export const Selections: React.FC<SelectionsProps> = ({ question, questionNum, s
         const selectedIndex = event.target.selectedIndex
         if (selectedIndex > 0) {
             setAnswer(selections[selectedIndex - 1].title)
+            localStorage.setItem('herAge', selections[selectedIndex - 1].title)
             setPoints(selections[selectedIndex - 1].points)
         }
     }
